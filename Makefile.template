@@ -16,6 +16,7 @@ CXXDEFS = PLUGIN_DEFINES
 CXXFLAGS = PLUGIN_FLAGS
 INCLUDES = PLUGIN_INCLUDES
 OBJDIR = PLUGIN_OBJDIR
+INSTALLDIR = PLUGIN_INSTALLDIR
 
 # Used to determine linking flags.
 UNAME = $(shell uname)
@@ -47,6 +48,12 @@ BINOBJ = $(CXXSRC:%.cc=%.o)
 
 $(PSITARGET): $(BINOBJ)
 	$(CXX) $(LDFLAGS) -o $@ $^ $(CXXDEFS) $(PSIPLUGIN)
+
+# Installation
+install:
+	cp -p $(PSITARGET) $(INSTALLDIR)
+	cp -p *.py $(INSTALLDIR)
+	cp -p *.rst $(INSTALLDIR)
 
 # Erase all compiled intermediate files
 clean:
