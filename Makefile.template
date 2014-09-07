@@ -11,11 +11,11 @@ NAME = $(shell basename `pwd`)
 CXXSRC = $(notdir $(wildcard *.cc))
 
 # Flags that were used to compile Psi4.
-CXX = @PLUGIN_CXX@
-CXXDEFS = @PLUGIN_DEFINES@
-CXXFLAGS = @PLUGIN_FLAGS@
-INCLUDES = @PLUGIN_INCLUDES@
-OBJDIR = @PLUGIN_OBJDIR@
+CXX = PLUGIN_CXX
+CXXDEFS = PLUGIN_DEFINES
+CXXFLAGS = PLUGIN_FLAGS
+INCLUDES = PLUGIN_INCLUDES
+OBJDIR = PLUGIN_OBJDIR
 
 # Used to determine linking flags.
 UNAME = $(shell uname)
